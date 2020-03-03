@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-posts',
+  selector: 'message-board',
   template: `
+  <h2>Welcome To AceBook With Angular!</h2>
+  <div class="container"> 
+      <img class="img-thumbnail" src="app/assets/images/happy.jpeg" alt="happy">
+  </div>
+  
   <div>
     <h1>Messages Board</h1>
     <hr/>
@@ -12,9 +17,9 @@ import { Component, OnInit } from '@angular/core';
     </post-thumbnail>
   </div>
   `,
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./message-board.component.css']
 })
-export class PostsComponent implements OnInit {
+export class MessageBoardComponent implements OnInit {
 
   constructor() { }
 
@@ -26,7 +31,7 @@ export class PostsComponent implements OnInit {
     name:'Donnie Yen',
     date: '01/03/2020',
     post: 'My first post!',
-    imageUrl: './assets/images/donnie-yen'
+    imageUrl: '/assets/images/donnie yen.jpg'
   };
 
   handleChildEvent(data) {

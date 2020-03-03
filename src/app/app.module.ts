@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PostsComponent } from './posts/posts.component';
+import { MessageBoardComponent } from './message-board/message-board.component';
 import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.componen
   declarations: [
     AppComponent,
     HomeComponent,
-    PostsComponent,
-    PostThumbnailComponent
+    MessageBoardComponent,
+    PostThumbnailComponent,
+    NavComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
