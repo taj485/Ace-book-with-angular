@@ -3,11 +3,6 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'message-board',
   template: `
-  <h2>Welcome To AceBook With Angular!</h2>
-  <div class="container"> 
-      <img class="img-thumbnail" src="app/assets/images/happy.jpeg" alt="happy">
-  </div>
-  
   <div>
     <h1>Messages Board</h1>
     <hr/>
