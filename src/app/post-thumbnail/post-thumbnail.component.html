@@ -1,6 +1,29 @@
-<div class="well hoverwell thumbnail">
-    <h2>{{messages.name}}</h2>
-    <div>{{messages.post}}</div>
-    <div>{{messages.date}}</div>
-    <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
+<hr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <h2>{{messages.name}}</h2>
+
+            <img src={{messages.imageUrl}} alt="Happy">
+        </div>
+        <div class="col-9">
+            <div>{{messages.post}}</div>
+            <div>{{messages.date}}</div>
+            <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
+        </div>
+    </div>
 </div>
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <img src={{messages.imageUrl}} alt="Happy">
+      </div>
+      <div class="col-sm">
+        <h2>{{messages.name}}</h2>
+        <div>{{messages.post}}</div>
+        <div>{{messages.date}}</div>
+        <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
+      </div>
+    </div>
+</div> -->
