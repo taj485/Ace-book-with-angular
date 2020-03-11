@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from './shared/message.service';
 
 @Component({
   selector: 'message-board',
@@ -14,32 +15,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-board.component.css']
 })
 export class MessageBoardComponent implements OnInit {
+  posts:any[]
 
-  constructor() { }
+  constructor(private messageService : MessageService) {
+   }
 
   ngOnInit(): void {
+    this.posts = this.messageService.getPosts()
   }
-
-  posts = [
-    { id: 1,
-      name:'Jenifer',
-      date: '01/03/2020',
-      post: 'My first post!',
-      imageUrl: 'app/assets/images/happy.jpeg'
-    },
-    { id: 2,
-      name:'Donnie Yen',
-      date:'09/03/2020',
-      post:'Have you seen my latest movie IP Man 4?',
-      imageUrl:'app/assets/images/donnie yen.jpg'
-    },
-    { id: 3,
-      name:'Will Smith',
-      date:'01/03/2020',
-      post:'Now this is a story all about how My life got flipped-turned upside down',
-      imageUrl:'app/assets/images/will smith.jpg'
-    }
-  ];
 
   handleChildEvent(data) {
      console.log(data)

@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { MessageBoardComponent } from './message-board/message-board.component';
 import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
 import { NavComponent } from './nav/nav.component';
+import { MessageService } from './message-board/shared/message.service'
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { NavComponent } from './nav/nav.component';
     PostThumbnailComponent,
     NavComponent
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
