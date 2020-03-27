@@ -1,0 +1,10 @@
+﻿{
+  "ConnectionStrings": {
+    "MbaConnectionString": "server=(localdb)\\MSSQLLocalDB;Database=MbaDB;Integrated security=true;MultipleActiveResultSets=true;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default":  "Warning"
+    }
+  }
+}

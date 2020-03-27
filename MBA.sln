@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBA", "MBA\MBA.csproj", "{BCA5F1DF-484A-44E6-896C-F5C6609DA363}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18CB0D73-CF10-4B7D-84F1-D886E958B832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBA.Data", "MBA.Data\MBA.Data.csproj", "{59BFFEE5-5B91-4475-B7EA-6A514AE8D3F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCA5F1DF-484A-44E6-896C-F5C6609DA363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA5F1DF-484A-44E6-896C-F5C6609DA363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA5F1DF-484A-44E6-896C-F5C6609DA363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA5F1DF-484A-44E6-896C-F5C6609DA363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BFFEE5-5B91-4475-B7EA-6A514AE8D3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BFFEE5-5B91-4475-B7EA-6A514AE8D3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BFFEE5-5B91-4475-B7EA-6A514AE8D3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BFFEE5-5B91-4475-B7EA-6A514AE8D3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {668A2F10-1E6F-404C-9349-E6DED4932289}
+	EndGlobalSection
+EndGlobal
