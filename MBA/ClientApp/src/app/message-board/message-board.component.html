@@ -1,6 +1,8 @@
 <div>
-  <h1>Messages Board</h1>
-  <post-thumbnail (eventClick)="handleChildEvent($event)"
-                  *ngFor="let post of posts" [messages]="post">
-  </post-thumbnail>
-</div>
+  <div class="container">
+    <add-post></add-post>
+    <h1>Messages Board</h1>
+    <post-thumbnail (eventClick)="handleChildEvent($event)"
+                    *ngFor="let post of posts" [messages]="post">
+    </post-thumbnail>
+  </div>

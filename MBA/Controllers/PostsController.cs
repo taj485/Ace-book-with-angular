@@ -2,6 +2,7 @@
 using MBA.Data;
 using MBA.Data.Entites;
 using MBA.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,12 +27,13 @@ namespace MBA.Controllers
             _mapper = mapper;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<PostVm>> GetAllPost()
         {
             try
             {
-                return Ok(_mapper.Map<IEnumerable<Post>, IEnumerable<PostVm>>( _mbaContext.Posts));
+                return Ok(_mapper.Map<IEnumerable<Post>, IEnumerable<PostVm>>( _mbaContext.Posts.OrderByDescending(x => x.PostId)));
             }
             catch (Exception ex)
             {

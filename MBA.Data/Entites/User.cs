@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MBA.Data.Entites
 {
-    public class User
+    public class User : IdentityUser
     {
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
-
         public ICollection<Post> Posts { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Post } from '../shared/Post';
 
 @Component({
   selector: 'post-thumbnail',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PostThumbnailComponent implements OnInit {
 
-  @Input() messages: any
+  @Input() messages:Post
 
   @Output() eventClick = new EventEmitter()
 

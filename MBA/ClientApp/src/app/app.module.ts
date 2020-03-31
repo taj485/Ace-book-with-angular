@@ -16,6 +16,7 @@ import { MessageBoardComponent } from './message-board/message-board.component';
 import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
 import { NavComponent } from './nav/nav.component';
 import { MessageService } from './shared/message.service';
+import { AddPostComponent } from './add-post/add-post.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MessageService } from './shared/message.service';
     HomeComponent,
     MessageBoardComponent,
     PostThumbnailComponent,
-    NavComponent
+    NavComponent,
+    AddPostComponent
   ],
   // add to providers to inject into components eg shared services
   providers: [MessageService],

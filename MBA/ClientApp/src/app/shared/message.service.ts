@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { map, catchError } from 'rxjs/operators'
 import { Observable } from 'rxjs';
+import { Post } from './Post';
 
 @Injectable() // tell angular when it injects the module it may need its own dependencies
 export class MessageService {
 
   constructor(private http: HttpClient) { }
 
-  public posts = [];
+  public posts: Post[] = [];
 
-  getPosts(){
+  public newPost: Post;
+
+  getPosts() {
     return POSTS
   }
 
-  loadApiPosts(): Observable<any>{
+  loadApiPosts(): Observable<boolean>{
     //suscribe - when api call is complete I want to know what is the response
     //before suscribe intercept the call and change some of the data before it is returned to the caller
     //by useing rxjs/operators for interceptors ..pipe..map
@@ -27,6 +30,13 @@ export class MessageService {
           return true;
         })
       )
+  }
+
+  addToPost(nPost: Post) {
+    return this.http.post<Post>("/api/posts/addpost", nPost)
+      .toPromise().then(data => {
+        console.log(data)
+      });
   }
 
 }

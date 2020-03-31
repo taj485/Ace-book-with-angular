@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../shared/message.service';
+import { Post } from '../shared/Post';
 
 @Component({
   selector: 'message-board',
@@ -11,7 +12,7 @@ export class MessageBoardComponent implements OnInit {
   constructor(private messageService : MessageService) {
   }
 
-  posts: any[]
+  public posts: Post[] = [];
 
   //interface - once your ready call my methods
   ngOnInit(): void {
