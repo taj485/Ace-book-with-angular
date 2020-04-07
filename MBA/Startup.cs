@@ -29,6 +29,9 @@ namespace MBA
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("MbaConnectionString"));
             });
+
+            services.AddTransient<SeedData>();
+
             services.AddMvc();
             //In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

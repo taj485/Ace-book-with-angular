@@ -10,7 +10,7 @@ namespace MBA.ViewModels
     public class PostVm
     {
         public int PostId { get; set; }
-        public User User { get; set; }
+        public AppUser User { get; set; }
         [Required]
         public string Text { get; set; }
         public DateTime CreatedAt { get; set; }
