@@ -13,23 +13,13 @@ namespace MBA.Data
         {
         }
 
-        //public DbSet<AppUser> Users{ get; set; }
+        public DbSet<AppUser> Users{ get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> comments { get; set; }
-    
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
 
-        //    modelBuilder.Entity<User>()
-        //        .HasData(new User()
-        //        {
-        //            UserId = 1,
-        //            FirstName = "Tom",
-        //            LastName = "Baker",
-        //            UserName = "Tom123",
-        //            Password = "Tom123"
-        //        });
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

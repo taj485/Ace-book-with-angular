@@ -17,12 +17,12 @@ namespace MBA
         {
             var host = CreateHostBuilder(args);
 
-            SeedDb(host);
+            //SeedDb(host);
 
-            host.Build().Run()
+            host.Build().Run();
         }
 
-        public static IWebHost CreateHostBuilder(string[] args) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(SetupConfiguration)
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -36,14 +36,14 @@ namespace MBA
             builder.AddJsonFile("config.json", false, true);
         }
 
-        private static void SeedDb(IWebHost host)
-        {
-            var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
-            using (var scope = scopeFactory.CreateScope())
-            {
-                var seeder = scope.ServiceProvider.GetService<SeedData>();
-                seeder.SeedAsync().Wait();
-            }
-        }
+        //private static void SeedDb(IWebHost host)
+        //{
+        //    var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
+        //    using (var scope = scopeFactory.CreateScope())
+        //    {
+        //        var seeder = scope.ServiceProvider.GetService<SeedData>();
+        //        seeder.SeedAsync().Wait();
+        //    }
+        //}
     }
 }

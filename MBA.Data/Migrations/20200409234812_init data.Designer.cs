@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MBA.Data.Migrations
 {
     [DbContext(typeof(MbaContext))]
-    [Migration("20200405000816_Identity")]
-    partial class Identity
+    [Migration("20200409234812_init data")]
+    partial class initdata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,9 +74,6 @@ namespace MBA.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")

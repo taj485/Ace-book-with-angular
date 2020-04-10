@@ -17,6 +17,7 @@ import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.componen
 import { NavComponent } from './nav/nav.component';
 import { MessageService } from './shared/message.service';
 import { AddPostComponent } from './add-post/add-post.component';
+import { UserRegisterComponent } from './admin-user/user/user-register/user-register.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AddPostComponent } from './add-post/add-post.component';
     MessageBoardComponent,
     PostThumbnailComponent,
     NavComponent,
-    AddPostComponent
+    AddPostComponent,
+    UserRegisterComponent
   ],
   // add to providers to inject into components eg shared services
   providers: [MessageService],

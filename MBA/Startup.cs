@@ -3,6 +3,7 @@ using MBA.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,7 +31,10 @@ namespace MBA
                 cfg.UseSqlServer(Configuration.GetConnectionString("MbaConnectionString"));
             });
 
-            services.AddTransient<SeedData>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<MbaContext>();
+                
+            //services.AddTransient<SeedData>();
 
             services.AddMvc();
             //In production, the Angular files will be served from this directory
@@ -57,6 +61,9 @@ namespace MBA
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
+
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {

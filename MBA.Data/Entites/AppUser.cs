@@ -8,7 +8,6 @@ namespace MBA.Data.Entites
 {
     public class AppUser : IdentityUser
     {
-        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public ICollection<Post> Posts { get; set; }

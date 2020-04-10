@@ -27,7 +27,7 @@ namespace MBA.Controllers
             _mapper = mapper;
         }
 
-        [Authorize]
+       
         [HttpGet]
         public ActionResult<IEnumerable<PostVm>> GetAllPost()
         {

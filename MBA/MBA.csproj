@@ -37,10 +37,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MBA.Data\MBA.Data.csproj" />
+    <ProjectReference Include="..\MBA.Engine\MBA.Engine.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\shared\Post.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\admin-user\user\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
