@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\register-user\Models\register.model.ts" />
     <None Remove="ClientApp\src\app\shared\Post.ts" />
   </ItemGroup>
 
@@ -41,11 +42,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\register-user\Models\register.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\Post.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\admin-user\user\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

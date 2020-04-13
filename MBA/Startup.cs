@@ -1,5 +1,6 @@
 using AutoMapper;
 using MBA.Data;
+using MBA.Data.Entites;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +32,7 @@ namespace MBA
                 cfg.UseSqlServer(Configuration.GetConnectionString("MbaConnectionString"));
             });
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<MbaContext>();
                 
             //services.AddTransient<SeedData>();
