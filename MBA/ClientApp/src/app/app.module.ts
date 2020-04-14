@@ -12,6 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { MessageService } from './shared/message.service';
 import { AddPostComponent } from './add-post/add-post.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { RegisterUserService } from './services/http/register-user.service';
 
 
 const appRoutes: Routes = [
@@ -46,7 +47,7 @@ const appRoutes: Routes = [
     RegisterUserComponent
   ],
   // add to providers to inject into components eg shared services
-  providers: [MessageService],
+  providers: [MessageService, RegisterUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

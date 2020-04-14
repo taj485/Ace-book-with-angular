@@ -6,6 +6,7 @@ using AutoMapper;
 using MBA.Data;
 using MBA.Data.Entites;
 using MBA.Engine.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -18,30 +19,41 @@ namespace MBA.Controllers
     public class AccountController : ControllerBase
     {
         private readonly MbaContext _mbaContext;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public AccountController(MbaContext mbaContext, ILogger<AccountController> logger, IMapper mapper)
+        public AccountController(MbaContext mbaContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger, IMapper mapper)
         {
             _mbaContext = mbaContext;
+            _userManager = userManager;
+            _signInManager = signInManager;
             _logger = logger;
             _mapper = mapper;
         }
 
         [HttpPost]
-        public ActionResult Register([FromBody] RegisterModel rm)
+        public async Task<ActionResult> Register([FromBody] RegisterModel rm)
         {
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var newUser = _mapper.Map<RegisterModel, AppUser>(rm);
-                    _mbaContext.Users.Add(newUser);
-                    if (_mbaContext.SaveChanges() > 0)
+                    var user = new AppUser()
                     {
-                        return Created($"/api/account/register{rm.UserName}", newUser);
+                        UserName = rm.UserName
+                    };
+
+                    var result = await _userManager.CreateAsync(user, rm.Password);
+
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return Created($"/api/account/register{rm.UserName}", user);
                     }
+                   
                 }
                 else
                 {

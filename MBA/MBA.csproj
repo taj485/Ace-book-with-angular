@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\register-user\Models\register.model.ts" />
+    <None Remove="ClientApp\src\app\services\http\register-user.service.ts" />
     <None Remove="ClientApp\src\app\shared\Post.ts" />
   </ItemGroup>
 
@@ -43,6 +44,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\register-user\Models\register.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\http\register-user.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\Post.ts" />
   </ItemGroup>
 
