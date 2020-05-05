@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators'
 import { Observable } from 'rxjs';
-import { Post } from './Post';
+import { Post } from './../Models/Post';
 
 @Injectable() // tell angular when it injects the module it may need its own dependencies
 export class MessageService {
@@ -18,8 +18,12 @@ export class MessageService {
   }
 
   loadApiPosts(): Observable<boolean>{
+    //response we get back from the HTTP call is an observable
+    //Map/cast oberservable data to model
+    //passes the data to everyone that has suscribed
+
     //suscribe - when api call is complete I want to know what is the response
-    //before suscribe intercept the call and change some of the data before it is returned to the caller
+    //before suscribe intercept the call and change/map the data before it is returned to the caller
     //by useing rxjs/operators for interceptors ..pipe..map
     //user suscribe on the caller
 

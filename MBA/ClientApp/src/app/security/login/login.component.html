@@ -1,0 +1,15 @@
+
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)"
+      class="form-inline" autocomplete="off">
+    
+    <label for="userName">User Name:</label>
+    <input (ngModel)="userName" name="userName" id="userName" type="text" class="form-control mr-sm-2"
+            placeholder="User Name..." />
+
+    <label for="password">Password:</label>
+    <input (ngModel)="password" name="password" id="password" type="password" class="form-control mr-sm-2"
+            placeholder="Password..." />
+
+  <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Login</button>
+</form>
+

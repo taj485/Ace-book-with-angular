@@ -33,15 +33,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\shared\Post.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MBA.Data\MBA.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\shared\Post.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\Post.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\security\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

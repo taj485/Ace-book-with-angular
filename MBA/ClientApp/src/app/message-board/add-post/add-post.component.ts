@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../shared/message.service';
-import { Post } from '../shared/Post';
+import { MessageService } from '../../services/message.service';
+import { Post } from '../../models/Post';
 
 @Component({
   selector: 'add-post',

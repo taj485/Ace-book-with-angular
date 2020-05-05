@@ -13,10 +13,12 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MessageBoardComponent } from './message-board/message-board.component';
-import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
-import { NavComponent } from './nav/nav.component';
-import { MessageService } from './shared/message.service';
-import { AddPostComponent } from './add-post/add-post.component';
+import { PostThumbnailComponent } from './message-board/post-thumbnail/post-thumbnail.component';
+import { NavComponent } from './nav-menu/nav.component';
+import { MessageService } from './services/message.service';
+import { AddPostComponent } from './message-board/add-post/add-post.component';
+import { LoginComponent } from './security/login/login.component';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -39,10 +41,11 @@ import { AddPostComponent } from './add-post/add-post.component';
     MessageBoardComponent,
     PostThumbnailComponent,
     NavComponent,
-    AddPostComponent
+    AddPostComponent,
+    LoginComponent
   ],
   // add to providers to inject into components eg shared services
-  providers: [MessageService],
+  providers: [MessageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

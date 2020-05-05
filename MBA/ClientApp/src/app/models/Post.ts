@@ -3,7 +3,7 @@ export interface Post {
   user?: any;
   text: string;
   createdAt: Date;
-  //comments: any[];
+  //comments?: any[];
 }
 
 export interface Comments {

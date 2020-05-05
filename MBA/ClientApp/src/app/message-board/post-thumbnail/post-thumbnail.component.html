@@ -1,0 +1,16 @@
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <h2>{{messages.user}}</h2>
+
+      <img src={{messages.imageUrl}} alt="Happy">
+    </div>
+    <div class="col-9">
+      <div>{{messages.text}}</div>
+      <div>{{messages.createdAt}}</div>
+    </div>
+    <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
+
+  </div>
+</div>

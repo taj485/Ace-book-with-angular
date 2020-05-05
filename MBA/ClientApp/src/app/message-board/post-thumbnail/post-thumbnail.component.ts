@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Post } from '../shared/Post';
+import { Post } from '../../models/Post';
 
 @Component({
   selector: 'post-thumbnail',
