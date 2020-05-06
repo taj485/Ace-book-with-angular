@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { Post } from '../../models/Post';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'add-post',
@@ -9,30 +9,29 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./add-post.component.css']
 })
 export class AddPostComponent implements OnInit {
-  posts: Post[];
-
   //postForm will be accessed from html template
-  postForm:FormGroup
+  postForm: FormGroup
+  private text:FormControl
 
   constructor(private messageService: MessageService) { }
 
   ngOnInit() {
-    //let id = new FormControl()
-    //let user = new FormControl()
-    let text = new FormControl()
+    this.text = new FormControl("",Validators.required)
     this.postForm = new FormGroup({
-      //id: id,
-      //user: user,
-      text: text
+      text: this.text
     })
   }
 
   addNewPost(formValues): void{
-    var time = Date.now;
+    if (this.postForm.valid) {
+      const newPost: Post = formValues;
 
-    const newPost: Post = formValues;
+      this.messageService
+        .addToPost(newPost)
+    }
+  }
 
-    this.messageService
-      .addToPost(newPost)
+  validateText() {
+     return this.text.touched
   }
 }

@@ -19,7 +19,8 @@ import { MessageService } from './services/message.service';
 import { AddPostComponent } from './message-board/add-post/add-post.component';
 import { LoginComponent } from './security/login/login.component';
 import { AuthService } from './services/auth.service';
-
+import { UserPageComponent } from './user-profile/user-page/user-page.component';
+import { AppRoutes } from './routes';
 
 @NgModule({
   // add modules to imports 
@@ -27,12 +28,8 @@ import { AuthService } from './services/auth.service';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-    //RouterModule.forRoot([
-    //  { path: '', component: HomeComponent, pathMatch: 'full' },
-    //  { path: 'counter', component: CounterComponent },
-    //  { path: 'fetch-data', component: FetchDataComponent },
-    //])
+    ReactiveFormsModule,
+    RouterModule.forRoot(AppRoutes)
   ],
 
   // add components to declarations
@@ -43,7 +40,8 @@ import { AuthService } from './services/auth.service';
     PostThumbnailComponent,
     NavComponent,
     AddPostComponent,
-    LoginComponent
+    LoginComponent,
+    UserPageComponent
   ],
   // add to providers to inject into components eg services
   providers: [MessageService, AuthService],

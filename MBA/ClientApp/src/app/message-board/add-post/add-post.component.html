@@ -1,13 +1,14 @@
 
-<div class="form-group">
-  <!--this will bind form element to postForm in component-->
-  <form [formGroup]="postForm" (ngSubmit)="addNewPost(postForm.value)">
+
+<!--this will bind form element to postForm in component-->
+<form [formGroup]="postForm" (ngSubmit)="addNewPost(postForm.value)">
+  <div class="form-group" [ngClass]="{'error' : !validateText()}">
     <label>what's on your mind?</label>
     <!--then specify the property they should be bound to for component-->
+    <em *ngIf="!validateText()">Required</em>
     <input formControlName="text" id="text" type="text" />
     <button type="submit" class="btn btn-primary">Add Post</button>
+  </div>
 
-
-    <!--<button (click)="addNewPost(newPost.value)">Add Post</button>-->
-  </form>
-</div>
+  <!--<button (click)="addNewPost(newPost.value)">Add Post</button>-->
+</form>
