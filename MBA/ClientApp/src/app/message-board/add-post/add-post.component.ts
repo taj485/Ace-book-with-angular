@@ -20,6 +20,9 @@ export class AddPostComponent implements OnInit {
     this.postForm = new FormGroup({
       text: this.text
     })
+
+    this.postForm.get('text').valueChanges.subscribe(
+      value => console.log(value));
   }
 
   addNewPost(formValues): void{

@@ -16,6 +16,15 @@ export class MessageBoardComponent implements OnInit {
 
   //interface - once your ready call my methods
   ngOnInit(): void {
+    this.messageService.refreshNeeded
+      .subscribe(() => {
+        this.getAllPost();
+      })
+
+    this.getAllPost();
+  }
+
+  private getAllPost() {
     this.messageService.loadApiPosts()
       .subscribe(success => {
         if (success) {

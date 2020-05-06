@@ -1,17 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators'
-import { Observable } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators'
+import { Observable, Subject } from 'rxjs';
 import { Post } from './../Models/Post';
 
 @Injectable() // tell angular when it injects the module it may need its own dependencies
 export class MessageService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   public posts: Post[] = [];
 
   public newPost: Post;
+
+  private _refreshNeeded = new Subject<void>();
+  
+  get refreshNeeded() {
+    return this._refreshNeeded;
+  }
+
+  addToPost(nPost: Post) {
+    return this.httpClient
+      .post<Post>("/api/posts/addpost", nPost)
+      .pipe(
+        tap(() => {
+          this._refreshNeeded.next();
+        })
+      )
+      .toPromise().then(data => {
+        console.log(data)
+      })
+  }
 
   getPosts() {
     return POSTS
@@ -27,21 +45,13 @@ export class MessageService {
     //by useing rxjs/operators for interceptors ..pipe..map
     //user suscribe on the caller
 
-    return this.http.get("/api/posts/getallpost")
+    return this.httpClient.get("/api/posts/getallpost")
       .pipe(
         map((data: any[]) => {
           this.posts = data;
           return true;
         })
       )
-  }
-
-  addToPost(nPost: Post) {
-    return this.http.post<Post>("/api/posts/addpost", nPost)
-      .toPromise().then(data => {
-        console.log(data)
-        this.loadApiPosts()
-      });
   }
 
 }
