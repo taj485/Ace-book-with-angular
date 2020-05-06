@@ -4,10 +4,13 @@ import { AuthService } from '../../services/auth.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styles: [`
+    em { float:right; color:red; padding-left:10px}
+  `]
 })
 export class LoginComponent implements OnInit {
 
+  mouseoverLogin
   username
   password
 
@@ -18,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   login(formValues) {
     this.authService.loginUser(formValues.userName, formValues.password)
+    console.log(formValues)
   }
 
 }

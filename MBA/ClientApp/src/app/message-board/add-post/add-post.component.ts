@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { Post } from '../../models/Post';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'add-post',
@@ -10,15 +11,26 @@ import { Post } from '../../models/Post';
 export class AddPostComponent implements OnInit {
   posts: Post[];
 
+  //postForm will be accessed from html template
+  postForm:FormGroup
+
   constructor(private messageService: MessageService) { }
 
   ngOnInit() {
+    //let id = new FormControl()
+    //let user = new FormControl()
+    let text = new FormControl()
+    this.postForm = new FormGroup({
+      //id: id,
+      //user: user,
+      text: text
+    })
   }
 
-  addNewPost(text: string): void{
+  addNewPost(formValues): void{
     var time = Date.now;
 
-    const newPost: Post = { text } as Post;
+    const newPost: Post = formValues;
 
     this.messageService
       .addToPost(newPost)

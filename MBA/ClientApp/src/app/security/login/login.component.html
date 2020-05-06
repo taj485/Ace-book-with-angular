@@ -1,15 +1,21 @@
 
-<form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)"
-      class="form-inline" autocomplete="off">
-    
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)"
+        class="form-inline" autocomplete="off">
+
     <label for="userName">User Name:</label>
+    <em *ngIf="loginForm.controls.userName?.invalid &&
+        (loginForm.controls.userName?.touched || mouseoverLogin)">Required</em>
     <input (ngModel)="userName" name="userName" id="userName" type="text" class="form-control mr-sm-2"
-            placeholder="User Name..." />
+           placeholder="User Name..." required />
 
     <label for="password">Password:</label>
+    <em *ngIf="loginForm.controls.password?.invalid &&
+        (loginForm.controls.password?.touched || mouseoverLogin)">Required</em>
     <input (ngModel)="password" name="password" id="password" type="password" class="form-control mr-sm-2"
-            placeholder="Password..." />
+           placeholder="Password..." required />
 
-  <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Login</button>
-</form>
+    <span (mouseenter)="mouseoverLogin=true" (mouseLeave)="mouseoverLogin=false">
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-outline-success my-2 my-sm-0">Login</button>
+    </span>
+  </form>
 

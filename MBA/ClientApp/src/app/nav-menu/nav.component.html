@@ -1,5 +1,6 @@
 <nav class="navbar justify-content-between">
-    <a class="navbar-brand">AceBook</a>
-    <app-login></app-login>
+  <a class="navbar-brand">AceBook</a>
+  <div *ngIf="authService.isAuthenticated()"> Welcome {{authService.currentUser.firstName}}</div>
+  <div *ngIf="!authService.isAuthenticated()"><app-login></app-login></div>
 </nav>
 <app-home></app-home>

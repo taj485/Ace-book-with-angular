@@ -1,8 +1,13 @@
-<p>add-post works!</p>
 
-
-  <div class="form-group">
+<div class="form-group">
+  <!--this will bind form element to postForm in component-->
+  <form [formGroup]="postForm" (ngSubmit)="addNewPost(postForm.value)">
     <label>what's on your mind?</label>
-    <input #newPost/>
-    <button (click)="addNewPost(newPost.value)">Add Post</button>
-  </div>
+    <!--then specify the property they should be bound to for component-->
+    <input formControlName="text" id="text" type="text" />
+    <button type="submit" class="btn btn-primary">Add Post</button>
+
+
+    <!--<button (click)="addNewPost(newPost.value)">Add Post</button>-->
+  </form>
+</div>

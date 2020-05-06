@@ -40,6 +40,7 @@ export class MessageService {
     return this.http.post<Post>("/api/posts/addpost", nPost)
       .toPromise().then(data => {
         console.log(data)
+        this.loadApiPosts()
       });
   }
 
