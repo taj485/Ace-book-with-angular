@@ -1,4 +1,4 @@
-
+<!-- 
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)"
         class="form-inline" autocomplete="off">
 
@@ -17,5 +17,8 @@
     <span (mouseenter)="mouseoverLogin=true" (mouseLeave)="mouseoverLogin=false">
       <button type="submit" [disabled]="loginForm.invalid" class="btn btn-outline-success my-2 my-sm-0">Login</button>
     </span>
-  </form>
+  </form> -->
+
+  <button *ngIf="!isLoggedIn" mat-button (click)="login()">Login</button>
+  <button *ngIf="isLoggedIn" mat-button (click)="logout()">Logout</button>
 

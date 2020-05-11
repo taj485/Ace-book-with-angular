@@ -1,6 +1,7 @@
 <nav class="navbar justify-content-between">
   <a class="navbar-brand" [routerLink]="['/home']">AceBook</a>
-  <div *ngIf="authService.isAuthenticated()"
+  <app-login></app-login>
+  <!-- <div *ngIf="authService.isAuthenticated()"
        [routerLink]="['/profile']"> Welcome {{authService.currentUser.firstName}}</div>
-  <div *ngIf="!authService.isAuthenticated()"><app-login></app-login></div>
+  <div *ngIf="!authService.isAuthenticated()"><app-login></app-login></div> -->
 </nav>

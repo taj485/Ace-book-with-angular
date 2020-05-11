@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+
 //import { AppComponent } from './app.component';
 //import { NavMenuComponent } from './nav-menu/nav-menu.component';
 //import { HomeComponentOld } from './home-old/home.component';
@@ -21,6 +22,9 @@ import { LoginComponent } from './security/login/login.component';
 import { AuthService } from './services/auth.service';
 import { UserPageComponent } from './user-profile/user-page/user-page.component';
 import { AppRoutes } from './routes';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { SigninRedirectCallbackComponent } from './security/signin-redirect-callback/signin-redirect-callback.component';
+import { SignoutRedirectCallbackComponent } from './security/signout-redirect-callback copy/signout-redirect-callback.component';
 
 @NgModule({
   // add modules to imports 
@@ -29,7 +33,8 @@ import { AppRoutes } from './routes';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
+    OAuthModule.forRoot()
   ],
 
   // add components to declarations
@@ -41,7 +46,9 @@ import { AppRoutes } from './routes';
     NavComponent,
     AddPostComponent,
     LoginComponent,
-    UserPageComponent
+    UserPageComponent,
+    SigninRedirectCallbackComponent,
+    SignoutRedirectCallbackComponent
   ],
   // add to providers to inject into components eg services
   providers: [MessageService, AuthService],
