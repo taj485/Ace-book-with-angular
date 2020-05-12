@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 
 
 //import { AppComponent } from './app.component';
@@ -22,9 +23,10 @@ import { LoginComponent } from './security/login/login.component';
 import { AuthService } from './services/auth.service';
 import { UserPageComponent } from './user-profile/user-page/user-page.component';
 import { AppRoutes } from './routes';
-import { OAuthModule } from 'angular-oauth2-oidc';
 import { SigninRedirectCallbackComponent } from './security/signin-redirect-callback/signin-redirect-callback.component';
 import { SignoutRedirectCallbackComponent } from './security/signout-redirect-callback copy/signout-redirect-callback.component';
+import { NavmenuComponent } from './core/layout/nav-menu/navmenu/navmenu.component';
+
 
 @NgModule({
   // add modules to imports 
@@ -34,7 +36,7 @@ import { SignoutRedirectCallbackComponent } from './security/signout-redirect-ca
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes),
-    OAuthModule.forRoot()
+    OktaAuthModule
   ],
 
   // add components to declarations
@@ -48,10 +50,17 @@ import { SignoutRedirectCallbackComponent } from './security/signout-redirect-ca
     LoginComponent,
     UserPageComponent,
     SigninRedirectCallbackComponent,
-    SignoutRedirectCallbackComponent
+    SignoutRedirectCallbackComponent,
+    NavmenuComponent
   ],
   // add to providers to inject into components eg services
-  providers: [MessageService, AuthService],
+  providers: [MessageService, AuthService, 
+             {provide: OKTA_CONFIG, useValue: {
+              issuer: 'https://dev-802232.okta.com/oauth2/default',
+              clientId: '0oabvrlykZb0rtDnL4x6',
+              redirectUri: `https://localhost:44307/implicit/callback`,
+              scope: 'openid profile email'.split(/\s+/)}
+            }],
 
   bootstrap: [AppComponent]
 })

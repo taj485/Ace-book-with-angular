@@ -18,14 +18,14 @@ export class MessageBoardComponent implements OnInit {
   ngOnInit(): void {
     this.messageService.refreshNeeded
       .subscribe(() => {
-        this.getAllPost();
+        this.loadPosts();
       })
 
-    this.getAllPost();
+    this.loadPosts();
   }
 
-  private getAllPost() {
-    this.messageService.loadApiPosts()
+  private loadPosts() {
+    this.messageService.getAllPosts()
       .subscribe(success => {
         if (success) {
           this.posts = this.messageService.posts;

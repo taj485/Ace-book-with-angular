@@ -22,6 +22,7 @@
     "@angular/platform-server": "8.2.12",
     "@angular/router": "8.2.12",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    "@okta/okta-angular": "^2.0.0",
     "angular-oauth2-oidc": "^9.2.2",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",

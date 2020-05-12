@@ -31,11 +31,7 @@ export class MessageService {
       })
   }
 
-  getPosts() {
-    return POSTS
-  }
-
-  loadApiPosts(): Observable<boolean>{
+  getAllPosts(): Observable<boolean>{
     //response we get back from the HTTP call is an observable
     //Map/cast oberservable data to model
     //passes the data to everyone that has suscribed
@@ -46,7 +42,7 @@ export class MessageService {
     //user suscribe on the caller
 
     return this.httpClient.get("/api/posts/getallpost")
-      .pipe(
+      .pipe( // pipe returns an observeable so angular can watch and suscribe to it
         map((data: any[]) => {
           this.posts = data;
           return true;

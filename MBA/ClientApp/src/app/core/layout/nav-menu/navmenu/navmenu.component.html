@@ -1,0 +1,9 @@
+<nav class="navbar justify-content-between">
+    <a class="navbar-brand" [routerLink]="['/home']">AceBook</a>
+    
+    <div *ngIf="isAuthenticated" [routerLink]="['/profile']"> Welcome {{userName}}</div>
+
+    <button *ngIf="!isAuthenticated" mat-button (click)="login()">Login</button>
+    <button *ngIf="isAuthenticated" mat-button (click)="logout()">Logout</button>
+</nav>
+  

@@ -1,6 +1,5 @@
-import { AuthConfig } from 'angular-oauth2-oidc';
-
-  export const authCodeFlowConfig: AuthConfig = {
+//OLD CODE
+  export const authCodeFlowConfig = {
     // Url of the Identity Provider
     issuer: 'https://idsvr4.azurewebsites.net',
 
